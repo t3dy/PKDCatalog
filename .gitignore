@@ -1,0 +1,8 @@
+.env
+PKDpdf/
+__pycache__/
+*.pyc
+*.pyo
+.DS_Store
+Thumbs.db
+PKD -20260310T032342Z-3-001.zip
