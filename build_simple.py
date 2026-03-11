@@ -27,15 +27,23 @@ CATEGORIES = {
 }
 
 STYLE = """
-body { font-family: Georgia, serif; max-width: 1100px; margin: 0 auto; padding: 1rem; background: #f8f6f0; color: #1a1a1a; }
-h1 { border-bottom: 2px solid #7b3f00; padding-bottom: .5rem; }
-h2 { margin-top: 2rem; color: #7b3f00; }
-.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1rem; }
-.card { background: #fff; border: 1px solid #d8d4c8; padding: 1rem; border-radius: 4px; }
-.card:hover { box-shadow: 0 2px 8px rgba(0,0,0,.1); }
-.card h3 { margin: 0 0 .3rem; font-size: 1rem; }
-.card h3 a { color: #1a1a1a; text-decoration: none; }
-.card h3 a:hover { color: #7b3f00; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: Georgia, serif; background: #f8f6f0; color: #1a1a1a; }
+.layout { display: flex; min-height: 100vh; }
+.sidebar { width: 220px; background: #1a1a1a; color: #ccc; padding: 1.5rem 1rem; position: sticky; top: 0; height: 100vh; overflow-y: auto; flex-shrink: 0; }
+.sidebar h2 { color: #f8f6f0; font-size: 1rem; margin-bottom: 1rem; border-bottom: 1px solid #444; padding-bottom: .5rem; }
+.sidebar a { display: block; color: #bbb; text-decoration: none; padding: .35rem .5rem; font-size: .85rem; border-radius: 3px; }
+.sidebar a:hover, .sidebar a.active { background: #7b3f00; color: #fff; }
+.sidebar .count { color: #777; font-size: .75rem; }
+.main { flex: 1; padding: 2rem; max-width: 1100px; }
+h1 { border-bottom: 2px solid #7b3f00; padding-bottom: .5rem; margin-bottom: .5rem; }
+h1 + p { margin-bottom: 1.5rem; }
+h2 { margin-top: 2rem; color: #7b3f00; scroll-margin-top: 1rem; }
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1rem; margin-top: .75rem; }
+a.card { display: block; background: #fff; border: 1px solid #d8d4c8; padding: 1rem; border-radius: 4px; text-decoration: none; color: inherit; transition: box-shadow .15s, border-color .15s; }
+a.card:hover { box-shadow: 0 3px 12px rgba(0,0,0,.12); border-color: #7b3f00; }
+.card h3 { margin: 0 0 .3rem; font-size: 1rem; color: #1a1a1a; }
+a.card:hover h3 { color: #7b3f00; }
 .card .meta { font-size: .8rem; color: #666; margin-bottom: .4rem; }
 .card .summary { font-size: .85rem; color: #333; }
 .back { display: inline-block; margin-bottom: 1rem; color: #7b3f00; text-decoration: none; }
@@ -44,6 +52,14 @@ h2 { margin-top: 2rem; color: #7b3f00; }
 .entry-body { max-width: 700px; line-height: 1.8; }
 .entry-body p { margin-bottom: 1rem; }
 .footer { margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #d8d4c8; font-size: .8rem; color: #666; }
+@media (max-width: 768px) {
+  .layout { flex-direction: column; }
+  .sidebar { width: 100%; height: auto; position: static; display: flex; flex-wrap: wrap; gap: .25rem; padding: .75rem; }
+  .sidebar h2 { width: 100%; margin-bottom: .5rem; }
+  .sidebar a { display: inline-block; font-size: .75rem; padding: .25rem .5rem; }
+  .main { padding: 1rem; }
+  .cards { grid-template-columns: 1fr; }
+}
 """
 
 def h(text):
@@ -66,12 +82,21 @@ def build_card(entry):
         meta_parts.append(h(author))
     if date and date != "Unknown":
         meta_parts.append(h(date))
-    meta = " · ".join(meta_parts)
-    return f"""<div class="card">
-<h3><a href="{link}">{title}</a></h3>
+    meta = " &#183; ".join(meta_parts)
+    return f"""<a class="card" href="{link}">
+<h3>{title}</h3>
 <div class="meta">{meta}</div>
 <div class="summary">{summary}</div>
-</div>"""
+</a>"""
+
+def build_sidebar(by_cat):
+    links = []
+    for cat_key, label in CATEGORIES.items():
+        items = by_cat.get(cat_key, [])
+        if not items:
+            continue
+        links.append(f'<a href="#{cat_key}">{h(label)} <span class="count">({len(items)})</span></a>')
+    return f'<nav class="sidebar"><h2>Categories</h2>\n' + "\n".join(links) + '\n</nav>'
 
 def build_index(entries, by_cat):
     total = len(entries)
@@ -81,18 +106,24 @@ def build_index(entries, by_cat):
         if not items:
             continue
         cards = "\n".join(build_card(e) for e in items)
-        sections.append(f'<h2>{h(label)} ({len(items)})</h2>\n<div class="cards">\n{cards}\n</div>')
+        sections.append(f'<h2 id="{cat_key}">{h(label)} ({len(items)})</h2>\n<div class="cards">\n{cards}\n</div>')
     body = "\n".join(sections)
+    sidebar = build_sidebar(by_cat)
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>PKD Source Database</title>
 <style>{STYLE}</style></head>
 <body>
+<div class="layout">
+{sidebar}
+<div class="main">
 <h1>PKD Source Database</h1>
 <p><em>A research database of {total} primary and secondary sources on Philip K. Dick</em></p>
 {body}
 <div class="footer">PKD Source Database</div>
+</div>
+</div>
 </body></html>"""
 
 def build_page(entry):
@@ -109,7 +140,7 @@ def build_page(entry):
     meta_parts.append(f'<span class="badge">{h(cat)}</span>')
     if entry.get("is_pkd_authored"):
         meta_parts.append('<strong style="color:#7b3f00">PKD-authored</strong>')
-    meta = " · ".join(meta_parts)
+    meta = " &#183; ".join(meta_parts)
     pdf_link = ""
     if entry.get("filename"):
         pdf_link = f'<p><a href="../../PKDpdf/{h(entry["filename"])}" target="_blank">Source PDF ↗</a></p>'

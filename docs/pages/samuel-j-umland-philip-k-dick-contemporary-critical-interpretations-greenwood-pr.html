@@ -3,15 +3,23 @@
 <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Philip K. Dick: Contemporary Critical Interpretations</title>
 <style>
-body { font-family: Georgia, serif; max-width: 1100px; margin: 0 auto; padding: 1rem; background: #f8f6f0; color: #1a1a1a; }
-h1 { border-bottom: 2px solid #7b3f00; padding-bottom: .5rem; }
-h2 { margin-top: 2rem; color: #7b3f00; }
-.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1rem; }
-.card { background: #fff; border: 1px solid #d8d4c8; padding: 1rem; border-radius: 4px; }
-.card:hover { box-shadow: 0 2px 8px rgba(0,0,0,.1); }
-.card h3 { margin: 0 0 .3rem; font-size: 1rem; }
-.card h3 a { color: #1a1a1a; text-decoration: none; }
-.card h3 a:hover { color: #7b3f00; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: Georgia, serif; background: #f8f6f0; color: #1a1a1a; }
+.layout { display: flex; min-height: 100vh; }
+.sidebar { width: 220px; background: #1a1a1a; color: #ccc; padding: 1.5rem 1rem; position: sticky; top: 0; height: 100vh; overflow-y: auto; flex-shrink: 0; }
+.sidebar h2 { color: #f8f6f0; font-size: 1rem; margin-bottom: 1rem; border-bottom: 1px solid #444; padding-bottom: .5rem; }
+.sidebar a { display: block; color: #bbb; text-decoration: none; padding: .35rem .5rem; font-size: .85rem; border-radius: 3px; }
+.sidebar a:hover, .sidebar a.active { background: #7b3f00; color: #fff; }
+.sidebar .count { color: #777; font-size: .75rem; }
+.main { flex: 1; padding: 2rem; max-width: 1100px; }
+h1 { border-bottom: 2px solid #7b3f00; padding-bottom: .5rem; margin-bottom: .5rem; }
+h1 + p { margin-bottom: 1.5rem; }
+h2 { margin-top: 2rem; color: #7b3f00; scroll-margin-top: 1rem; }
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1rem; margin-top: .75rem; }
+a.card { display: block; background: #fff; border: 1px solid #d8d4c8; padding: 1rem; border-radius: 4px; text-decoration: none; color: inherit; transition: box-shadow .15s, border-color .15s; }
+a.card:hover { box-shadow: 0 3px 12px rgba(0,0,0,.12); border-color: #7b3f00; }
+.card h3 { margin: 0 0 .3rem; font-size: 1rem; color: #1a1a1a; }
+a.card:hover h3 { color: #7b3f00; }
 .card .meta { font-size: .8rem; color: #666; margin-bottom: .4rem; }
 .card .summary { font-size: .85rem; color: #333; }
 .back { display: inline-block; margin-bottom: 1rem; color: #7b3f00; text-decoration: none; }
@@ -20,11 +28,19 @@ h2 { margin-top: 2rem; color: #7b3f00; }
 .entry-body { max-width: 700px; line-height: 1.8; }
 .entry-body p { margin-bottom: 1rem; }
 .footer { margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #d8d4c8; font-size: .8rem; color: #666; }
+@media (max-width: 768px) {
+  .layout { flex-direction: column; }
+  .sidebar { width: 100%; height: auto; position: static; display: flex; flex-wrap: wrap; gap: .25rem; padding: .75rem; }
+  .sidebar h2 { width: 100%; margin-bottom: .5rem; }
+  .sidebar a { display: inline-block; font-size: .75rem; padding: .25rem .5rem; }
+  .main { padding: 1rem; }
+  .cards { grid-template-columns: 1fr; }
+}
 </style></head>
 <body>
 <a class="back" href="../index.html">← All Entries</a>
 <h1>Philip K. Dick: Contemporary Critical Interpretations</h1>
-<p class="meta">Samuel J. Umland (ed.) · 1995 · <span class="badge">Scholarship</span></p>
+<p class="meta">Samuel J. Umland (ed.) &#183; 1995 &#183; <span class="badge">Scholarship</span></p>
 <div class="entry-body"><p>Philip K. Dick: Contemporary Critical Interpretations is an edited collection of scholarly essays compiled by Samuel J. Umland and published by Greenwood Press, a major academic publisher. At 120 pages, the volume collects contemporary scholarly readings of Dick&#x27;s fiction from multiple critical perspectives.</p>
 <p>The PDF is a scanned document at 31.76 MB with no OCR text layer, indicating it was digitized from a physical copy. Greenwood Press (later absorbed into ABC-CLIO) was a prominent publisher of academic reference works and critical studies, and their publication of this volume reflects the institutional recognition of Dick as a significant literary figure worthy of sustained academic attention.</p>
 <p>Umland&#x27;s collection represents the state of Dick scholarship in the mid-1990s, a period when academic interest in Dick was accelerating rapidly. The volume&#x27;s publication by an established academic press helped legitimize Dick studies within the broader field of literary criticism and provided a platform for diverse critical approaches to his work.</p></div>

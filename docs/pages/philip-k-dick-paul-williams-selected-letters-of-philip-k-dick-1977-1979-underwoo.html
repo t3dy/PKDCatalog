@@ -3,15 +3,23 @@
 <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>The Selected Letters of Philip K. Dick: 1977-1979</title>
 <style>
-body { font-family: Georgia, serif; max-width: 1100px; margin: 0 auto; padding: 1rem; background: #f8f6f0; color: #1a1a1a; }
-h1 { border-bottom: 2px solid #7b3f00; padding-bottom: .5rem; }
-h2 { margin-top: 2rem; color: #7b3f00; }
-.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1rem; }
-.card { background: #fff; border: 1px solid #d8d4c8; padding: 1rem; border-radius: 4px; }
-.card:hover { box-shadow: 0 2px 8px rgba(0,0,0,.1); }
-.card h3 { margin: 0 0 .3rem; font-size: 1rem; }
-.card h3 a { color: #1a1a1a; text-decoration: none; }
-.card h3 a:hover { color: #7b3f00; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: Georgia, serif; background: #f8f6f0; color: #1a1a1a; }
+.layout { display: flex; min-height: 100vh; }
+.sidebar { width: 220px; background: #1a1a1a; color: #ccc; padding: 1.5rem 1rem; position: sticky; top: 0; height: 100vh; overflow-y: auto; flex-shrink: 0; }
+.sidebar h2 { color: #f8f6f0; font-size: 1rem; margin-bottom: 1rem; border-bottom: 1px solid #444; padding-bottom: .5rem; }
+.sidebar a { display: block; color: #bbb; text-decoration: none; padding: .35rem .5rem; font-size: .85rem; border-radius: 3px; }
+.sidebar a:hover, .sidebar a.active { background: #7b3f00; color: #fff; }
+.sidebar .count { color: #777; font-size: .75rem; }
+.main { flex: 1; padding: 2rem; max-width: 1100px; }
+h1 { border-bottom: 2px solid #7b3f00; padding-bottom: .5rem; margin-bottom: .5rem; }
+h1 + p { margin-bottom: 1.5rem; }
+h2 { margin-top: 2rem; color: #7b3f00; scroll-margin-top: 1rem; }
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1rem; margin-top: .75rem; }
+a.card { display: block; background: #fff; border: 1px solid #d8d4c8; padding: 1rem; border-radius: 4px; text-decoration: none; color: inherit; transition: box-shadow .15s, border-color .15s; }
+a.card:hover { box-shadow: 0 3px 12px rgba(0,0,0,.12); border-color: #7b3f00; }
+.card h3 { margin: 0 0 .3rem; font-size: 1rem; color: #1a1a1a; }
+a.card:hover h3 { color: #7b3f00; }
 .card .meta { font-size: .8rem; color: #666; margin-bottom: .4rem; }
 .card .summary { font-size: .85rem; color: #333; }
 .back { display: inline-block; margin-bottom: 1rem; color: #7b3f00; text-decoration: none; }
@@ -20,11 +28,19 @@ h2 { margin-top: 2rem; color: #7b3f00; }
 .entry-body { max-width: 700px; line-height: 1.8; }
 .entry-body p { margin-bottom: 1rem; }
 .footer { margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #d8d4c8; font-size: .8rem; color: #666; }
+@media (max-width: 768px) {
+  .layout { flex-direction: column; }
+  .sidebar { width: 100%; height: auto; position: static; display: flex; flex-wrap: wrap; gap: .25rem; padding: .75rem; }
+  .sidebar h2 { width: 100%; margin-bottom: .5rem; }
+  .sidebar a { display: inline-block; font-size: .75rem; padding: .25rem .5rem; }
+  .main { padding: 1rem; }
+  .cards { grid-template-columns: 1fr; }
+}
 </style></head>
 <body>
 <a class="back" href="../index.html">← All Entries</a>
 <h1>The Selected Letters of Philip K. Dick: 1977-1979</h1>
-<p class="meta">Philip K. Dick (edited by Don Herron, introduction by Robert Anton Wilson) · 1993 · <span class="badge">Letters</span> · <strong style="color:#7b3f00">PKD-authored</strong></p>
+<p class="meta">Philip K. Dick (edited by Don Herron, introduction by Robert Anton Wilson) &#183; 1993 &#183; <span class="badge">Letters</span> &#183; <strong style="color:#7b3f00">PKD-authored</strong></p>
 <div class="entry-body"><p>The Selected Letters of Philip K. Dick: 1977-1979 is a volume of Dick&#x27;s correspondence edited by Don Herron with an introduction by Robert Anton Wilson, published by Underwood-Miller (Novato, California and Lancaster, Pennsylvania) in 1993. ISBN 0-88733-120-3 (trade edition), 0-88733-121-1 (slipcased edition). Copyright held by the Estate of Philip K. Dick. The frontispiece photograph of Dick is by Nicole Panter (1980).</p>
 <p>At 300 pages, this volume covers a crucial period in Dick&#x27;s life. The years 1977-1979 saw Dick deeply engaged with processing and interpreting his 2-3-74 mystical experiences through the Exegesis, while also producing some of his most important late fiction. The letters from this period reveal Dick in intense intellectual ferment, corresponding with friends, editors, and fellow writers about his evolving metaphysical framework.</p>
 <p>Robert Anton Wilson&#x27;s introduction is particularly apt: Wilson, the author of the Illuminatus! trilogy, shared Dick&#x27;s interest in conspiracy, paranoia, reality tunnels, and the nature of consciousness. Don Herron, the editor, is known for his work on Dashiell Hammett and his involvement in San Francisco literary culture. The Underwood-Miller publishing house was instrumental in keeping Dick&#x27;s work in print and making his letters and other non-fiction writings available to scholars and fans.</p></div>

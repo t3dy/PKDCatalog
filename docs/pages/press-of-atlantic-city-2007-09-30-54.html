@@ -3,15 +3,23 @@
 <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Press of Atlantic City — September 30, 2007 (Page 54)</title>
 <style>
-body { font-family: Georgia, serif; max-width: 1100px; margin: 0 auto; padding: 1rem; background: #f8f6f0; color: #1a1a1a; }
-h1 { border-bottom: 2px solid #7b3f00; padding-bottom: .5rem; }
-h2 { margin-top: 2rem; color: #7b3f00; }
-.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1rem; }
-.card { background: #fff; border: 1px solid #d8d4c8; padding: 1rem; border-radius: 4px; }
-.card:hover { box-shadow: 0 2px 8px rgba(0,0,0,.1); }
-.card h3 { margin: 0 0 .3rem; font-size: 1rem; }
-.card h3 a { color: #1a1a1a; text-decoration: none; }
-.card h3 a:hover { color: #7b3f00; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: Georgia, serif; background: #f8f6f0; color: #1a1a1a; }
+.layout { display: flex; min-height: 100vh; }
+.sidebar { width: 220px; background: #1a1a1a; color: #ccc; padding: 1.5rem 1rem; position: sticky; top: 0; height: 100vh; overflow-y: auto; flex-shrink: 0; }
+.sidebar h2 { color: #f8f6f0; font-size: 1rem; margin-bottom: 1rem; border-bottom: 1px solid #444; padding-bottom: .5rem; }
+.sidebar a { display: block; color: #bbb; text-decoration: none; padding: .35rem .5rem; font-size: .85rem; border-radius: 3px; }
+.sidebar a:hover, .sidebar a.active { background: #7b3f00; color: #fff; }
+.sidebar .count { color: #777; font-size: .75rem; }
+.main { flex: 1; padding: 2rem; max-width: 1100px; }
+h1 { border-bottom: 2px solid #7b3f00; padding-bottom: .5rem; margin-bottom: .5rem; }
+h1 + p { margin-bottom: 1.5rem; }
+h2 { margin-top: 2rem; color: #7b3f00; scroll-margin-top: 1rem; }
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1rem; margin-top: .75rem; }
+a.card { display: block; background: #fff; border: 1px solid #d8d4c8; padding: 1rem; border-radius: 4px; text-decoration: none; color: inherit; transition: box-shadow .15s, border-color .15s; }
+a.card:hover { box-shadow: 0 3px 12px rgba(0,0,0,.12); border-color: #7b3f00; }
+.card h3 { margin: 0 0 .3rem; font-size: 1rem; color: #1a1a1a; }
+a.card:hover h3 { color: #7b3f00; }
 .card .meta { font-size: .8rem; color: #666; margin-bottom: .4rem; }
 .card .summary { font-size: .85rem; color: #333; }
 .back { display: inline-block; margin-bottom: 1rem; color: #7b3f00; text-decoration: none; }
@@ -20,11 +28,19 @@ h2 { margin-top: 2rem; color: #7b3f00; }
 .entry-body { max-width: 700px; line-height: 1.8; }
 .entry-body p { margin-bottom: 1rem; }
 .footer { margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #d8d4c8; font-size: .8rem; color: #666; }
+@media (max-width: 768px) {
+  .layout { flex-direction: column; }
+  .sidebar { width: 100%; height: auto; position: static; display: flex; flex-wrap: wrap; gap: .25rem; padding: .75rem; }
+  .sidebar h2 { width: 100%; margin-bottom: .5rem; }
+  .sidebar a { display: inline-block; font-size: .75rem; padding: .25rem .5rem; }
+  .main { padding: 1rem; }
+  .cards { grid-template-columns: 1fr; }
+}
 </style></head>
 <body>
 <a class="back" href="../index.html">← All Entries</a>
 <h1>Press of Atlantic City — September 30, 2007 (Page 54)</h1>
-<p class="meta">Press of Atlantic City Staff · 2007 · <span class="badge">Newspaper &amp; Press</span></p>
+<p class="meta">Press of Atlantic City Staff &#183; 2007 &#183; <span class="badge">Newspaper &amp; Press</span></p>
 <div class="entry-body"><p>A scanned newspaper page from the Press of Atlantic City (Atlantic City, New Jersey), dated Sunday, September 30, 2007, page 54. The clipping was sourced from Newspapers.com and downloaded on April 15, 2025. The PDF text layer contains only source metadata with no recoverable article text.</p>
 <p>This East Coast newspaper clipping from 2007 documents the spread of Dick&#x27;s cultural influence beyond California. By 2007, Richard Linklater&#x27;s rotoscoped film adaptation of A Scanner Darkly (2006) had been released, and Dick&#x27;s work continued to generate media coverage across the country. The specific content and its connection to Dick studies remain to be determined through examination of the scanned image.</p></div>
 <p><a href="../../PKDpdf/Press_of_Atlantic_City_2007_09_30_54.pdf" target="_blank">Source PDF ↗</a></p>
